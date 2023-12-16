@@ -41,10 +41,11 @@ body .nav-btns .active-btn {
   min-height: 100vh;
   width: 100%;
   padding: 2rem 3rem;
+  color: white;
   transform: translateY(-100%) scale(0);
 }
 
 .sec-active {
   transform: translateY(0%) scale(1);
   transition: var(--trans-anim);
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
