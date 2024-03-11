@@ -3,6 +3,7 @@ import Link from "@/node_modules/next/link";
 import React, { useState } from "react";
 import Image from "@/node_modules/next/image";
 import Navlink from "./Navlink";
+import { motion } from "framer-motion";
 
 const menuList = [
   { title: "Home", url: "/" },
@@ -12,8 +13,11 @@ const menuList = [
 ];
 
 const socialLink = [
-  { url: "/", icon: "/github.png" },
-  { url: "/", icon: "/linkedin.png" },
+  { url: "https://github.com/SubhoYadav", icon: "/github.png" },
+  {
+    url: "https://www.linkedin.com/in/subho-yadav-1a0981192/",
+    icon: "/linkedin.png",
+  },
 ];
 
 export default function Navbar() {
@@ -46,13 +50,20 @@ export default function Navbar() {
           }}
           className="z-50 relative md:hidden"
         >
-          {/* <div className="w-12 h-6 flex text-white flex-col justify-between">
-            <div className="w-12 h-1 bg-black"></div>
-            <div className="w-12 h-1 bg-black"></div>
-            <div className="w-12 h-1 bg-black"></div>
-          </div> */}
-          <div className="w-12 h-1 bg-black -rotate-45"></div>
-          <div className="w-12 h-1 bg-black rotate-45"></div>
+          <div className="flex text-white flex-col justify-between gap-4">
+            <motion.div
+              animate={{ rotate: -45, transformOrigin: "right" }}
+              className="w-10 h-1 bg-black"
+            ></motion.div>
+            <motion.div
+              animate={{ opacity: "0" }}
+              className="w-10 h-1 bg-black"
+            ></motion.div>
+            <motion.div
+              animate={{ rotate: 45, transformOrigin: "right" }}
+              className="w-10 h-1 bg-black"
+            ></motion.div>
+          </div>
         </button>
         {/* MENU BUTTON */}
       </div>
@@ -62,7 +73,7 @@ export default function Navbar() {
       <div className="hidden md:flex gap-4 w-1/3 justify-end">
         {socialLink.map((e) => {
           return (
-            <Link href={e.url} key={e.icon}>
+            <Link target="_blank" href={e.url} key={e.icon}>
               <Image src={e.icon} alt={e.url} width={24} height={24} />
             </Link>
           );
@@ -73,7 +84,7 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       {openMenu && (
         // In order for an absolute positioned element to take 100vw and 100vh top:0 and left:0 properties are required
-        <div className="w-screen h-screen bg-black absolute left-0 top-0 flex flex-col items-center justify-center gap-10">
+        <div className="w-screen h-screen bg-black absolute z-40 left-0 top-0 flex flex-col items-center justify-center gap-10">
           {menuList.map((link) => {
             return (
               <Link className="text-white" href={link.url} key={link.title}>
