@@ -24,10 +24,7 @@ export default function HomePage() {
           Full Stack Developer, Turning Ideas Into Reality
         </span>
         <p className="mt-3">
-          Crafting digital wonders from front-end finesse to back-end
-          brilliance! 🚀 Full Stack Developer by day, code magician by night.
-          Turning coffee into code and dreams into reality, one line at a time.
-          Let's build something amazing together! 💻✨ #FullStackDev
+          test
         </p>
         {/* CALL TO ACTION */}
         <div className="">
